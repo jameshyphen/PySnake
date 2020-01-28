@@ -32,13 +32,14 @@ def Login():
 
 def Register():
     choice = 0
-    while choice < 1 or choice > 2:
+    while choice !=2:
         name = input("Username: ")
         password = input("Password: ")
         passwordConfirm = input("Confirm your password: ")
         if password == passwordConfirm:
             print("Successfully registered.")
             domainController.registerPlayer(name, password)
+            break
         else:
             print("Password confirmation is incorrect.")
             print("1: Retry")

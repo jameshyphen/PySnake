@@ -31,3 +31,4 @@ class PlayerRepository:
         player = Player(name)
         player.password=password
         self.players.append(player)
+        return player
