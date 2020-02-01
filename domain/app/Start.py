@@ -1,5 +1,8 @@
+from domain.Difficulty import Difficulty
 from domain.DomainController import DomainController
 from domain.snake.Snake import Snake
+from domain.terrain.BuildTerrain import BuildTerrain
+from domain.terrain.Terrain import Terrain
 
 domain_controller = DomainController()
 
@@ -51,18 +54,32 @@ def Register():
 # Start screen either login player or register
 # By the end of this, player is instanced
 
-while domain_controller.player is None:
-    Start()
-
-print(f"The player logged in is: {domain_controller.player.name}")
-
-snake = Snake()
-tail = snake.tail
+#while domain_controller.player is None:
+#    Start()
 
 
-print(tail.coordinates)
 
-while tail.has_next():
-    tail = tail.next_tail
-    print(tail.coordinates)
 
+#print(f"The player logged in is: {domain_controller.player.name}")
+#snake = Snake(Difficulty.easy)
+#tail = snake.tail
+#print(tail.coordinates)
+#while tail.has_next():
+#    tail = tail.next_tail
+#    print(tail.coordinates)
+#terrain = Terrain(Difficulty.easy)
+#print(snake.tail_coordinates())
+#snake.move_snake()
+#print(snake.tail_coordinates())
+
+
+
+
+build_terrain = BuildTerrain(Difficulty.hard)
+
+build_terrain.draw_snake_on_terrain()
+build_terrain.draw_game()
+print("Moving one right")
+build_terrain.snake.move_snake()
+build_terrain.draw_snake_on_terrain()
+build_terrain.draw_game()

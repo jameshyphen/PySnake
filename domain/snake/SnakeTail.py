@@ -5,18 +5,18 @@ class SnakeTail:
         else:
             self.position = tail.position + 1
         self.next_tail = tail
-        self.coordinates = [4-self.position, 4]
+        self.coordinates = [4, 4-self.position]
         self.direction = Going.right
 
     def move(self):
         if self.direction is Going.up:
-            self.coordinates[1] = self.coordinates[1] - 1
-        elif self.direction is Going.down:
-            self.coordinates[1] = self.coordinates[1] + 1
-        elif self.direction is Going.left:
             self.coordinates[0] = self.coordinates[0] - 1
-        elif self.direction is Going.right:
+        elif self.direction is Going.down:
             self.coordinates[0] = self.coordinates[0] + 1
+        elif self.direction is Going.left:
+            self.coordinates[1] = self.coordinates[1] - 1
+        elif self.direction is Going.right:
+            self.coordinates[1] = self.coordinates[1] + 1
 
     def set_next_tail(self, tail):
         self.next_tail = tail
