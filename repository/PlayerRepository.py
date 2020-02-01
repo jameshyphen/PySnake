@@ -1,5 +1,6 @@
 from domain.player.Player import Player
 
+
 # this is just a test application and the passwords will not be saved like this.
 def passwordCheck(password, _player):
     if password == _player.password:
@@ -17,7 +18,7 @@ class PlayerRepository:
         self.players.append(Player("Kenzo"))
         self.players.append(Player("Alex"))
 
-    def loginPlayer(self, name, password):
+    def login_player(self, name, password):
         playerFound = next((p for p in self.players if p.name == name), None)
         if playerFound is None:
             return None
@@ -27,8 +28,8 @@ class PlayerRepository:
             else:
                 return None
 
-    def registerPlayer(self, name, password):
+    def register_player(self, name, password):
         player = Player(name)
-        player.password=password
+        player.password = password
         self.players.append(player)
         return player

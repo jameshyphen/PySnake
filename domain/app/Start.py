@@ -1,6 +1,7 @@
 from domain.DomainController import DomainController
+from domain.snake.Snake import Snake
 
-domainController = DomainController()
+domain_controller = DomainController()
 
 
 def Start():
@@ -20,7 +21,7 @@ def Login():
     while choice is not 2:
         name = input("Username: ")
         password = input("Password: ")
-        if domainController.loginPlayer(name, password):
+        if domain_controller.login_player(name, password):
             print("Successfully logged in.")
             break
         else:
@@ -35,10 +36,10 @@ def Register():
     while choice !=2:
         name = input("Username: ")
         password = input("Password: ")
-        passwordConfirm = input("Confirm your password: ")
-        if password == passwordConfirm:
+        confirm_password = input("Confirm your password: ")
+        if password == confirm_password:
             print("Successfully registered.")
-            domainController.registerPlayer(name, password)
+            domain_controller.register_player(name, password)
             break
         else:
             print("Password confirmation is incorrect.")
@@ -50,7 +51,18 @@ def Register():
 # Start screen either login player or register
 # By the end of this, player is instanced
 
-while domainController.player is None:
+while domain_controller.player is None:
     Start()
 
-print(f"The player logged in is: {domainController.player.name}")
+print(f"The player logged in is: {domain_controller.player.name}")
+
+snake = Snake()
+tail = snake.tail
+
+
+print(tail.coordinates)
+
+while tail.has_next():
+    tail = tail.next_tail
+    print(tail.coordinates)
+

@@ -4,13 +4,13 @@ from domain.player.Player import Player
 
 class DomainController:
     player = None
-    playerRepository = PlayerRepository()
+    player_repository = PlayerRepository()
 
-    def loginPlayer(self, name, password):
-        self.player = self.playerRepository.loginPlayer(name, password)
+    def login_player(self, name, password):
+        self.player = self.player_repository.login_player(name, password)
         if self.player is not None:
             return True
         return False
 
-    def registerPlayer(self, name, password):
-        self.player = self.playerRepository.registerPlayer(name, password)
+    def register_player(self, name, password):
+        self.player = self.player_repository.register_player(name, password)
