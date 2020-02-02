@@ -13,7 +13,6 @@ class BuildTerrain:
         pass
 
     def draw_snake_on_terrain(self):
-        print(self.snake.tail_coordinates())
         self.area = Terrain(self.difficulty).area
         for tail_cord in self.snake.tail_coordinates():
             self.area[tail_cord[0]][tail_cord[1]] = 1
@@ -21,3 +20,6 @@ class BuildTerrain:
     def draw_game(self):
         for line in self.area:
             print(line)
+
+    def change_direction(self, _direction):
+        self.snake.change_direction(_direction)

@@ -3,6 +3,7 @@ from domain.DomainController import DomainController
 from domain.snake.Snake import Snake
 from domain.terrain.BuildTerrain import BuildTerrain
 from domain.terrain.Terrain import Terrain
+from domain.Direction import Going
 
 domain_controller = DomainController()
 
@@ -75,11 +76,24 @@ def Register():
 
 
 
-build_terrain = BuildTerrain(Difficulty.hard)
+build_terrain = BuildTerrain(Difficulty.easy)
 
 build_terrain.draw_snake_on_terrain()
 build_terrain.draw_game()
 print("Moving one right")
-build_terrain.snake.move_snake()
+build_terrain.snake.Move_snake()
+build_terrain.draw_snake_on_terrain()
+build_terrain.draw_game()
+print("Adding a tail")
+build_terrain.snake.Add_Tail()
+build_terrain.draw_snake_on_terrain()
+build_terrain.draw_game()
+print("Changing direction to up, and move")
+build_terrain.change_direction(Going.up)
+build_terrain.snake.Move_snake()
+build_terrain.draw_snake_on_terrain()
+build_terrain.draw_game()
+print("Proceeding to move")
+build_terrain.snake.Move_snake()
 build_terrain.draw_snake_on_terrain()
 build_terrain.draw_game()

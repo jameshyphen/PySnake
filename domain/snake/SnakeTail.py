@@ -1,12 +1,21 @@
+from domain.Direction import Going
+
+
 class SnakeTail:
-    def __init__(self, tail=None):
-        if tail is None:
-            self.position = 0
+    def __init__(self, _tail=None, _direction=Going.right):
+        self.next_tail = _tail
+        self.direction = _direction
+        if _tail is None:
+            self.coordinates = [3, 3]
         else:
-            self.position = tail.position + 1
-        self.next_tail = tail
-        self.coordinates = [4, 4-self.position]
-        self.direction = Going.right
+            if _direction is Going.right:
+                self.coordinates = [_tail.coordinates[0], _tail.coordinates[1] - 1]
+            elif _direction is Going.down:
+                self.coordinates = [_tail.coordinates[0] - 1, _tail.coordinates[1]]
+            if _direction is Going.left:
+                self.coordinates = [_tail.coordinates[0], _tail.coordinates[1] + 1]
+            elif _direction is Going.down:
+                self.coordinates = [_tail.coordinates[0] + 1, _tail.coordinates[1]]
 
     def move(self):
         if self.direction is Going.up:
@@ -18,15 +27,34 @@ class SnakeTail:
         elif self.direction is Going.right:
             self.coordinates[1] = self.coordinates[1] + 1
 
+        if self.has_next():
+            self.direction = self.next_tail.direction
+
     def set_next_tail(self, tail):
         self.next_tail = tail
 
     def has_next(self):
         return self.next_tail is not None
 
+    def has_last(self):
+        return self.last_tail is not None
 
-class Going:
-    up = 0
-    down = 1
-    left = 2
-    right = 3
+    def next(self):
+        return self.next_tail
+
+    def last(self):
+        return self.last_tail
+
+    def change_direction(self, _direction):
+        if self.has_next():
+            self.next_tail.change_direction(_direction)
+        else:
+            self.direction = _direction
+
+    def direction(self):
+        return self.direction
+
+    def show_tail_directions(self):
+        print(self.direction)
+        if self.has_next():
+            self.next_tail.show_tail_directions()

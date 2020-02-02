@@ -13,12 +13,13 @@ class Snake:
         elif difficulty is Difficulty.easy:
             self.speed = 6
 
-
-    def move_snake(self):
+    def Move_snake(self):
         tail = self.tail
         tail.move()
         while tail.has_next():
+            temp_tail = tail
             tail = tail.next_tail
+            temp_tail.set_direction = tail.direction
             tail.move()
 
     def tail_coordinates(self):
@@ -29,3 +30,11 @@ class Snake:
             cords.append(tail.coordinates)
         return cords
 
+    def Add_Tail(self):
+        self.tail = SnakeTail(self.tail)
+
+    def show_tail_directions(self):
+        self.tail.show_tail_directions()
+
+    def change_direction(self, _direction):
+        self.tail.change_direction(_direction)
