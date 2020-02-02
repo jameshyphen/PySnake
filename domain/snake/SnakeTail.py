@@ -2,6 +2,8 @@ from domain.Direction import Going
 
 
 class SnakeTail:
+    direction: int
+
     def __init__(self, _tail=None, _direction=Going.right):
         self.next_tail = _tail
         self.direction = _direction
@@ -36,20 +38,11 @@ class SnakeTail:
     def has_next(self):
         return self.next_tail is not None
 
-    def has_last(self):
-        return self.last_tail is not None
-
     def next(self):
         return self.next_tail
 
-    def last(self):
-        return self.last_tail
-
     def Change_direction(self, _direction):
-        if self.has_next():
-            self.next_tail.Change_direction(_direction)
-        else:
-            self.direction = _direction
+        self.direction = _direction
 
     def direction(self):
         return self.direction

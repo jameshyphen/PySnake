@@ -5,7 +5,8 @@ from domain.Difficulty import Difficulty
 class Snake:
     def __init__(self, difficulty):
         self.difficulty = difficulty
-        self.tail = SnakeTail(SnakeTail(SnakeTail()))
+        self.head_tail = SnakeTail()
+        self.tail = SnakeTail(SnakeTail(self.head_tail))
         if difficulty is Difficulty.easy:
             self.speed = 4
         elif difficulty is Difficulty.easy:
@@ -37,4 +38,4 @@ class Snake:
         self.tail.show_tail_directions()
 
     def Change_direction(self, _direction):
-        self.tail.Change_direction(_direction)
+        self.head_tail.Change_direction(_direction)
