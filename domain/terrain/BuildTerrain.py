@@ -21,5 +21,8 @@ class BuildTerrain:
         for line in self.area:
             print(line)
 
-    def change_direction(self, _direction):
-        self.snake.change_direction(_direction)
+    def area(self):
+        return self.area
+
+    def Change_direction(self, _direction):
+        self.snake.Change_direction(_direction)

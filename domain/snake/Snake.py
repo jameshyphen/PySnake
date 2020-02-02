@@ -36,5 +36,5 @@ class Snake:
     def show_tail_directions(self):
         self.tail.show_tail_directions()
 
-    def change_direction(self, _direction):
-        self.tail.change_direction(_direction)
+    def Change_direction(self, _direction):
+        self.tail.Change_direction(_direction)

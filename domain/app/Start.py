@@ -37,7 +37,7 @@ def Login():
 
 def Register():
     choice = 0
-    while choice !=2:
+    while choice != 2:
         name = input("Username: ")
         password = input("Password: ")
         confirm_password = input("Confirm your password: ")
@@ -55,25 +55,21 @@ def Register():
 # Start screen either login player or register
 # By the end of this, player is instanced
 
-#while domain_controller.player is None:
+# while domain_controller.player is None:
 #    Start()
 
 
-
-
-#print(f"The player logged in is: {domain_controller.player.name}")
-#snake = Snake(Difficulty.easy)
-#tail = snake.tail
-#print(tail.coordinates)
-#while tail.has_next():
+# print(f"The player logged in is: {domain_controller.player.name}")
+# snake = Snake(Difficulty.easy)
+# tail = snake.tail
+# print(tail.coordinates)
+# while tail.has_next():
 #    tail = tail.next_tail
 #    print(tail.coordinates)
-#terrain = Terrain(Difficulty.easy)
-#print(snake.tail_coordinates())
-#snake.move_snake()
-#print(snake.tail_coordinates())
-
-
+# terrain = Terrain(Difficulty.easy)
+# print(snake.tail_coordinates())
+# snake.move_snake()
+# print(snake.tail_coordinates())
 
 
 build_terrain = BuildTerrain(Difficulty.easy)
@@ -89,7 +85,7 @@ build_terrain.snake.Add_Tail()
 build_terrain.draw_snake_on_terrain()
 build_terrain.draw_game()
 print("Changing direction to up, and move")
-build_terrain.change_direction(Going.up)
+build_terrain.Change_direction(Going.up)
 build_terrain.snake.Move_snake()
 build_terrain.draw_snake_on_terrain()
 build_terrain.draw_game()

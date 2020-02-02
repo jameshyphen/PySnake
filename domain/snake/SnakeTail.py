@@ -19,13 +19,13 @@ class SnakeTail:
 
     def move(self):
         if self.direction is Going.up:
-            self.coordinates[0] = self.coordinates[0] - 1
+            self.coordinates[0] -= 1
         elif self.direction is Going.down:
-            self.coordinates[0] = self.coordinates[0] + 1
+            self.coordinates[0] += 1
         elif self.direction is Going.left:
-            self.coordinates[1] = self.coordinates[1] - 1
+            self.coordinates[1] -= 1
         elif self.direction is Going.right:
-            self.coordinates[1] = self.coordinates[1] + 1
+            self.coordinates[1] += 1
 
         if self.has_next():
             self.direction = self.next_tail.direction
@@ -45,9 +45,9 @@ class SnakeTail:
     def last(self):
         return self.last_tail
 
-    def change_direction(self, _direction):
+    def Change_direction(self, _direction):
         if self.has_next():
-            self.next_tail.change_direction(_direction)
+            self.next_tail.Change_direction(_direction)
         else:
             self.direction = _direction
 
